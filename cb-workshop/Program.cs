@@ -23,14 +23,14 @@ namespace cb_workshop
         {
             DemoConnect();
 
-            //DemoCreateUsers();
-            //DemoCreateCompany();
-            //DemoAddUserToCompany();
-            //DemoGetCompany();
+            DemoCreateUsers();
+            DemoCreateCompany();
+            DemoAddUserToCompany();
+            DemoGetCompany();
             DemoQueryUserByDate();
-            //DemoCreateUserIndexes();
-            //DemoQueryWithN1QLSimple();
-            //DemoQueryWithN1QLJoin();
+            DemoCreateUserIndexes();
+            DemoQueryWithN1QLSimple();
+            DemoQueryWithN1QLJoin();
 
             //Thread.Sleep(6000);
             Console.ReadKey();
@@ -48,10 +48,12 @@ namespace cb_workshop
 
             var rkatz = new User("roikatz", "Roi", "Katz", " roi.katz@couchbase.com", new DateTime(1984, 7, 6, 8, 0, 0));
             var dmaier = new User("dmaier", "David", "Maier", "david.maier@couchbase.com", new DateTime(1980, 10, 3, 9, 2, 1));
+            var user1 = new User("someuser", "Some", "User", "some.user@couchbase.com", new DateTime(1983, 4, 2, 3, 5, 22));
             var users = new List<User>();
 
             users.Add(rkatz);
             users.Add(dmaier);
+            users.Add(user1);
 
             users.ForEach(async user =>
             {
@@ -151,10 +153,12 @@ namespace cb_workshop
 
             var rkatz = new User("roikatz", "Roi", "Katz", " roi.katz@couchbase.com", new DateTime(1984, 7, 6, 8, 0, 0));
             var dmaier = new User("dmaier", "David", "Maier", "david.maier@couchbase.com", new DateTime(1980, 10, 3, 9, 2, 1));
+            var user1 = new User("someuser", "Some", "User", "some.user@couchbase.com", new DateTime(1983, 4, 2, 3, 5, 22));
 
             var users = new List<User>();
             users.Add(rkatz);
             users.Add(dmaier);
+            users.Add(user1);
 
             companyObject.Users = users;
             var companyJson = JsonConvert.SerializeObject(companyObject);

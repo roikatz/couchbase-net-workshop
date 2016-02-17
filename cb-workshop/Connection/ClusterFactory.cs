@@ -34,7 +34,7 @@ namespace cb_workshop.Connection
 
             ClusterHelper.Initialize(config);
           
-            cluster = ClusterHelper.Get();
+            cluster = ClusterHelper.Get(); // Single connection, do not use using (do not dispose a recreate)
 
             //var cm = cluster.CreateManager("Administrator", "123456");
         }
